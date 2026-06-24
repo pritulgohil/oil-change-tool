@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('oil_change_checks', function (Blueprint $table) {
-            $table->id();
+            $table->ulid('id')->primary();
             $table->unsignedBigInteger('current_odometer');
             $table->date('previous_oil_change_date');
             $table->unsignedBigInteger('previous_oil_change_odometer');
