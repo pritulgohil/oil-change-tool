@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('oil_change_checks', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('current_odometer');
+            $table->date('previous_oil_change_date');
+            $table->unsignedBigInteger('previous_oil_change_odometer');
+            $table->unsignedBigInteger('kilometres_since_last_change');
+            $table->boolean('due_to_distance');
+            $table->boolean('due_to_time');
+            $table->boolean('is_due');
             $table->timestamps();
         });
     }
