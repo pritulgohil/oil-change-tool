@@ -30,7 +30,7 @@
         </main>
 
         <footer class="site-footer">
-            <p>Made using Laravel. Source code here - <a href="https://github.com/pritulgohil/oil-change-tool/" target="_blank">https://github.com/pritulgohil/oil-change-tool/</a< /p>
+            <p>Made using PHP / Laravel. Source code here - <a href="https://github.com/pritulgohil/oil-change-tool/" target="_blank">https://github.com/pritulgohil/oil-change-tool/</a< /p>
         </footer>
     </div>
 </body>
