@@ -32,4 +32,77 @@
         </p>
     </div>
 </section>
+
+<div class="result-grid">
+    <section class="panel" aria-labelledby="why-title">
+        <div class="panel-heading compact">
+            <div>
+                <span class="step-badge">2</span>
+                <h2 id="why-title">Why this result?</h2>
+            </div>
+        </div>
+
+        <div class="assessment-list">
+            <article class="assessment-item {{ $oilChangeCheck->due_to_distance ? 'assessment-warning' : 'assessment-ok' }}">
+                <div class="assessment-status" aria-hidden="true">
+                    {{ $oilChangeCheck->due_to_distance ? '!' : '✓' }}
+                </div>
+                <div>
+                    <h3>Distance travelled</h3>
+                    <p><strong>{{ number_format($oilChangeCheck->kilometres_since_last_change) }} km</strong> since the previous oil change.</p>
+                    <small>
+                        {{ $oilChangeCheck->due_to_distance ? 'More than the 5,000 km limit.' : 'At or below the 5,000 km limit.' }}
+                    </small>
+                </div>
+            </article>
+
+            <article class="assessment-item {{ $oilChangeCheck->due_to_time ? 'assessment-warning' : 'assessment-ok' }}">
+                <div class="assessment-status" aria-hidden="true">
+                    {{ $oilChangeCheck->due_to_time ? '!' : '✓' }}
+                </div>
+                <div>
+                    <h3>Time elapsed</h3>
+                    <p>
+                        Previous change on
+                        <strong>{{ $oilChangeCheck->previous_oil_change_date->format('F j, Y') }}</strong>.
+                    </p>
+                    <small>
+                        {{ $oilChangeCheck->due_to_time ? 'More than six months ago.' : 'Within the six-month limit.' }}
+                    </small>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <aside class="panel details-panel" aria-labelledby="details-title">
+        <div class="panel-heading compact">
+            <div>
+                <h2 id="details-title">Submitted details</h2>
+            </div>
+        </div>
+
+        <dl class="details-list">
+            <div>
+                <dt>Current odometer</dt>
+                <dd>{{ number_format($oilChangeCheck->current_odometer) }} km</dd>
+            </div>
+            <div>
+                <dt>Previous change date</dt>
+                <dd>{{ $oilChangeCheck->previous_oil_change_date->format('M j, Y') }}</dd>
+            </div>
+            <div>
+                <dt>Previous odometer</dt>
+                <dd>{{ number_format($oilChangeCheck->previous_oil_change_odometer) }} km</dd>
+            </div>
+            <div>
+                <dt>Checked</dt>
+                <dd>{{ $oilChangeCheck->created_at->format('M j, Y') }}</dd>
+            </div>
+        </dl>
+
+        <a href="{{ route('oil-change.create') }}" class="button button-secondary">
+            Check another car
+        </a>
+    </aside>
+</div>
 @endsection
