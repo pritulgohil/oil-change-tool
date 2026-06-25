@@ -10,6 +10,12 @@ A vehicle is due for an oil change when:
 * More than 5,000 km have been driven since the previous oil change, or
 * More than 6 months have passed since the previous oil change
 
+## Live Demo
+
+View the deployed application:
+
+https://oil-checker.alwaysdata.net/
+
 ## Requirements
 
 Make sure the following are installed:
